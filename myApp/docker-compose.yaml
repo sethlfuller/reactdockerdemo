@@ -1,0 +1,8 @@
+# myApp/docker-compose.yaml
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend_c
+    ports:
+      - '3000:3000'
