@@ -10,17 +10,18 @@ RUN apk add --no-cache openssh \
 # Copy SSH configuration
 COPY sshd_config /etc/ssh/sshd_config
 
+
 COPY package.json .
 RUN npm install
 COPY . .
 
 # Set up entrypoint
-COPY entrypoint.sh /app/entrypoint
-RUN chmod +x /app/entrypoint.sh
+COPY entrypoint.sh ./
+RUN chmod +x ./entrypoint.sh
 
 EXPOSE 3000 2222
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 
 #CMD ["/bin/sh", "-c", "/usr/sbin/sshd -D & npm start"]
 
