@@ -13,8 +13,15 @@ COPY sshd_config /etc/ssh/sshd_config
 COPY package.json .
 RUN npm install
 COPY . .
+
+# Set up entrypoint
+COPY entrypoint.sh /app/entrypoint
+RUN chmod +x /app/entrypoint.sh
+
 EXPOSE 3000 2222
 
-CMD ["/bin/sh", "-c", "/usr/sbin/sshd -D & npm start"]
+ENTRYPOINT ["/app/entrypoint.sh"]
+
+#CMD ["/bin/sh", "-c", "/usr/sbin/sshd -D & npm start"]
 
 #CMD ["npm", "start"]
