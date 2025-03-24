@@ -10,16 +10,16 @@ RUN apk add --no-cache openssh \
 # Copy SSH configuration
 COPY sshd_config /etc/ssh/
 
+# Copy and set permissions for entrypoint BEFORE application files
+COPY entrypoint.sh .
+RUN chmod +x /app/entrypoint.sh  # Explicit path
+
 # Application dependencies
 COPY package*.json ./
 RUN npm install
 
 # Copy application files
 COPY . .
-
-# Copy and configure entrypoint
-COPY entrypoint.sh /app/
-RUN chmod +x /app/entrypoint.sh
 
 # Expose application and SSH ports
 EXPOSE 3000 2222

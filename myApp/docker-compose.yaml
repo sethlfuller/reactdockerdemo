@@ -7,3 +7,5 @@ services:
     ports:
       - '3000:3000'
       - '2222:2222'
+    volumes:
+      - ./frontend:/app:rw
