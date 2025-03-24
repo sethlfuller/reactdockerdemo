@@ -6,6 +6,7 @@ services:
     container_name: frontend_c
     ports:
       - '3000:3000'
+      - '2222:2222'
 
 
 # myApp/docker-compose.yaml
