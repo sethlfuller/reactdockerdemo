@@ -8,7 +8,7 @@ RUN apk add --no-cache openssh \
     && ssh-keygen -A
 
 # Copy SSH configuration
-COPY sshd_config /etc/ssh/
+COPY sshd_config /etc/ssh/sshd_config
 
 
 # Application dependencies

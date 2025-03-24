@@ -9,4 +9,4 @@ ls -l /app/entrypoint.sh
 /usr/sbin/sshd -D &
 
 # Start Node.js Application
-exec npm start -- --host 0.0.0.0
+exec npm start -- --host 0.0.0.0 -p 3000
