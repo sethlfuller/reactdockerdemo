@@ -1,4 +1,5 @@
 #!/bin/sh
+# File currently being bypassed.
 set -e
 
 # Start SSH server in background (Azure requires port 2222)
