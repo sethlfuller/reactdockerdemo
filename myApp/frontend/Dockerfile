@@ -16,12 +16,12 @@ RUN npm install
 COPY . .
 
 # Set up entrypoint
-COPY entrypoint.sh ./
-RUN chmod +x ./entrypoint.sh
+COPY entrypoint.sh /app/
+RUN chmod +x /app/entrypoint.sh
 
 EXPOSE 3000 2222
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 #CMD ["/bin/sh", "-c", "/usr/sbin/sshd -D & npm start"]
 
