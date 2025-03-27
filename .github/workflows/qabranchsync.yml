@@ -24,5 +24,6 @@ jobs:
           git remote add azure https://${AZURE_DEVOPS_PAT}@dev.azure.com/seth2958/_git/Bain-Commercial-Dashboard
           git fetch azure
           git config pull.rebase false
+          git checkout -b qa --track azure/qa 2>/dev/null || git checkout qa
           git pull azure qa --allow-unrelated-histories
           git push azure qa
