@@ -1,9 +1,7 @@
 name: Sync with Azure DevOps
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   sync:
