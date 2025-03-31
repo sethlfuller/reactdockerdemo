@@ -1,7 +1,11 @@
 name: Dev Image Build and Deploy
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types: 
+      - closed
+    branches:
+      - 'dev'
 
 env:
   DOCKERFILE_PATH: 'myApp/frontend/Dockerfile'
