@@ -42,4 +42,4 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.APP_NAME }}
-        images: '${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.AZURE_IMAGE_REPOSITORY }}:${{ github.run_number }}'
+        images: '${{ vars.AZURE_CONTAINER_REGISTRY }}/${{ vars.AZURE_IMAGE_REPOSITORY }}:${{ github.run_number }}'
