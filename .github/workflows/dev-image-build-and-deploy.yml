@@ -23,8 +23,8 @@ jobs:
 
     - name: Build and push image to ACR
       run: |
-        docker build -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.AZURE_IMAGE_REPOSITORY }}:${{ github.run_number }} -f ${{ env.DOCKERFILE_PATH }} .
-        docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.AZURE_IMAGE_REPOSITORY }}:${{ github.run_number }}
+        docker build -t ${{ vars.AZURE_CONTAINER_REGISTRY }}/${{ vars.AZURE_IMAGE_REPOSITORY }}:${{ github.run_number }} -f ${{ env.DOCKERFILE_PATH }} .
+        docker push ${{ vars.AZURE_CONTAINER_REGISTRY }}/${{ vars.AZURE_IMAGE_REPOSITORY }}:${{ github.run_number }}
 
   deploy:
     needs: build
