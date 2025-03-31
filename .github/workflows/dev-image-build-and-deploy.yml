@@ -5,6 +5,7 @@ on:
 
 env:
   DOCKERFILE_PATH: 'myApp/frontend/Dockerfile'
+  BUILD_CONTEXT: 'myApp/frontend'
   APP_NAME: 'bcd-web-app-dev'
 
 jobs:
@@ -23,7 +24,7 @@ jobs:
 
     - name: Build and push image to ACR
       run: |
-        docker build -t ${{ vars.AZURE_CONTAINER_REGISTRY }}/${{ vars.AZURE_IMAGE_REPOSITORY }}:${{ github.run_number }} -f ${{ env.DOCKERFILE_PATH }} .
+        docker build -t ${{ vars.AZURE_CONTAINER_REGISTRY }}/${{ vars.AZURE_IMAGE_REPOSITORY }}:${{ github.run_number }} -f ${{ env.DOCKERFILE_PATH }} ${{ env.BUILD_CONTEXT }}
         docker push ${{ vars.AZURE_CONTAINER_REGISTRY }}/${{ vars.AZURE_IMAGE_REPOSITORY }}:${{ github.run_number }}
 
   deploy:
